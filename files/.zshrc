@@ -92,28 +92,28 @@ else
 fi
 
 banner() {
-clear
-echo
-echo -e "    ${y}░█████╗░░█████╗░██████╗░███████╗██╗░░██╗"
-echo -e "    ${y}██╔══██╗██╔══██╗██╔══██╗██╔════╝╚██╗██╔╝"
-echo -e "    ${y}██║░░╚═╝██║░░██║██║░░██║█████╗░░░╚███╔╝░"
-echo -e "    ${c}██║░░██╗██║░░██║██║░░██║██╔══╝░░░██╔██╗░"
-echo -e "    ${c}╚█████╔╝╚█████╔╝██████╔╝███████╗██╔╝╚██╗"
-echo -e "    ${c}░╚════╝░░╚════╝░╚═════╝░╚══════╝╚═╝░░╚═╝${n}"
-echo
+    clear
+    echo
+    echo -e "    ${y}░██████╗████████╗░█████╗░██████╗░███████╗██╗░░██╗██╗  ██╗"
+    echo -e "    ${y}██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝╚██╗██╔╝╚██╗██╔╝"
+    echo -e "    ${y}╚█████╗░░░░██║░░░███████║██████╔╝█████╗░░░╚███╔╝░░╚███╔╝░"
+    echo -e "    ${c}░╚═══██╗░░░██║░░░██╔══██║██╔══██╗██╔══╝░░░██╔██╗░░██╔██╗░"
+    echo -e "    ${c}██████╔╝░░░██║░░░██║░░██║██║░░██║███████╗██╔╝╚██╗██╔╝╚██╗"
+    echo -e "    ${c}╚═════╝░░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝╚═╝${n}"
+    echo
 }
+
 udp() {
     clear
-    messages=$(curl -s "$CODEX/check_version" | jq -r --arg vs "$version" '.[] | select(.message == $vs) | .message')
+    messages=$(curl -s "$Termux-Banner/check_version" | jq -r --arg vs "$version" '.[] | select(.message == $vs) | .message')
 
-# Check if any messages were found and display them
 if [ -n "$messages" ]; then
-    banner  # Assuming you have a function named 'banner'
+    banner
     echo -e " ${A} ${c}Tools Updated ${n}| ${c}New ${g}$messages"
     sleep 3
-    git clone https://github.com/DARK-H4CKER01/CODEX.git &> /dev/null &
+    git clone https://github.com/starexxx/Termux-Banner.git &> /dev/null &
     spin
-    cd CODEX
+    cd Termux-Banner
      bash install.sh
 else
     clear
