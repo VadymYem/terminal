@@ -51,7 +51,7 @@ check_disk_usage() {
     if [ "$disk_usage" -ge "$threshold" ]; then
         echo -e " ${g}[${n}\uf0a0${g}] ${r}WARN: ${c}Disk Full ${g}${disk_usage}% ${c}| ${c}U${g}${used_size} ${c}of ${c}T${g}${total_size}"
     else
-        echo -e " ${g}[${n}\uf0e7${g}] ${c}Disk usage: ${g}${disk_usage}% ${c}| ${c}U${g}${used_size} ${c}of ${c}T${g}${total_size}"
+        echo -e " ${g}[${n}\uf0e7${g}] ${c}Disk: ${g}${disk_usage}% ${c}| ${c}U${g}${used_size} ${c}of ${c}T${g}${total_size}"
     fi
 }
 
@@ -68,7 +68,7 @@ banner
     while ps -p $pid > /dev/null; do
         for i in "${spinner[@]}"; do
             tput civis
-            echo -ne "\033[1;96m\r [+] Downloading..please wait.........\e[33m[\033[1;92m$i\033[1;93m]\033[1;0m   "
+            echo -ne "\033[1;96m\r [+] Downloading...  \e[33m[\033[1;92m$i\033[1;93m]\033[1;0m   "
             sleep $delay
             printf "\b\b\b\b\b\b\b\b"
         done
