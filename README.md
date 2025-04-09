@@ -1,54 +1,47 @@
-<h2 align="center"> <img src="https://raw.githubusercontent.com/DARK-H4CKER01/CODEX/refs/heads/main/files/Dx-codex.jpg" width="470" /> </h2>
-
 <p align="center">
+  <b>Codex Termux Banner</b>
+</p>
 
-<p align="center"><b>Codex Banner</b <code></code></p>
+
+## Features
+
+- Stylish and colorful Termux banner
+- Easy to install and use
+- Fully customizable for a personalized look
+
+---
+
+## Installation (Step-by-Step)
 
 
-
-## INSTALL WITH TERMUX :
-
+```bash
+apt update && apt upgrade -y
 ```
-apt update
-```
-```
-apt upgrade -y
-```
-```
+```bash
 pkg install git -y
 ```
 ```
-git clone https://github.com/DARK-H4CKER01/CODEX.git
+git clone https://github.com/starexxx/Termux-Banner.git
+cd Termux-Banner/
 ```
-```
-cd CODEX/
-```
-```
+```bash
 chmod +x *
 ```
-```
+```bash
 bash install.sh
 ```
 
-### RUN :
+---
 
+## Quick One-Line Install
+```bash
+apt update && apt upgrade -y && pkg install git -y && git clone https://github.com/starexxx/Termux-Banner.git && cd Termux-Banner/ && chmod +x * && bash install.sh
 ```
-exit
-```
+---
 
-### AT ONCE :
-
-```
-apt update && apt upgrade -y ; pkg install git -y ; git clone https://github.com/DARK-H4CKER01/CODEX.git ; cd CODEX/ ; chmod +x * ; bash install.sh
-```
-
-<details id="missing-code-coverage">
-  <summary>Use Tool</summary>
-
-##### How to use CODEX Banner tools
-
-```
-
-```
-
+<details>
+<summary><b>How to use this tools</b></summary
+### Run the Banner
+<b>After installation, type:</b> your name & exit<br>
+Then reopen Termux to see your new banner.
 </details>
