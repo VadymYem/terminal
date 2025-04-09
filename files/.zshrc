@@ -9,10 +9,8 @@ alias ls='lsd'
 alias simu='gemini_run'
 alias rd='termux-reload-settings'
 
-# Clear the terminal
 clear
 
-# Define color codes
 r='\033[91m'
 p='\033[1;95m'
 y='\033[93m'
@@ -39,7 +37,7 @@ bol='\033[1m'
 bold="${bol}\e[4m"
 THRESHOLD=100
 check_disk_usage() {
-    local threshold=${1:-$THRESHOLD}  # Use passed argument or default to THRESHOLD
+    local threshold=${1:-$THRESHOLD}
     local total_size
     local used_size
     local disk_usage
@@ -57,7 +55,6 @@ check_disk_usage() {
     fi
 }
 
-# Call the function and store the output
 data=$(check_disk_usage)
 
 
@@ -66,7 +63,7 @@ clear
 banner
     local pid=$!
     local delay=0.40
-    local spinner=('█■■■■' '■█■■■' '■■█■■' '■■■█■' '■■■■█')
+    local spinner=('⠋' '⠙' '⠹' '⠸' '⠼' '⠴' '⠦' '⠧' '⠇' '⠏')
 
     while ps -p $pid > /dev/null; do
         for i in "${spinner[@]}"; do
@@ -134,7 +131,7 @@ clear
 echo -e " ${TERMINAL}${r}●${y}●${b}●${n}"
 sleep 0.2
 }
-widths=$(stty size | awk '{print $2}')  # Get terminal width
+widths=$(stty size | awk '{print $2}') 
 width=$(tput cols)
 var=$((width - 1))
 var2=$(seq -s═ ${var} | tr -d '[:digit:]')
