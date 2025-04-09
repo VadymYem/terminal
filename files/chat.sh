@@ -14,7 +14,6 @@ n='\033[1;0m'
 b='\033[1;94m'
 c='\033[1;96m'
 
-# dx Symbol
 X='\033[1;92m[\033[1;00m⎯꯭̽𓆩\033[1;92m]\033[1;96m'
 D='\033[1;92m[\033[1;00m〄\033[1;92m]\033[1;93m'
 E='\033[1;92m[\033[1;00m×\033[1;92m]\033[1;91m'
@@ -33,7 +32,7 @@ inter() {
 clear
 echo
 echo -e "               ${g}╔═══════════════╗"
-echo -e "               ${g}║ ${n}</>  ${c}DARK-X${g}   ║"
+echo -e "               ${g}║ ${n} ${c}Starexx${g}   ║"
 echo -e "               ${g}╚═══════════════╝"
 echo -e "  ${g}╔════════════════════════════════════════════╗"
 echo -e "  ${g}║  ${C} ${y}Checking Your Internet Connection¡${g}  ║"
@@ -192,14 +191,13 @@ echo -e " ${y}Enter ${g}q ${y}Exit Tool${n}"
 echo
 echo -e "             q"
 echo
-echo -e " ${b}■ \e[4m${c}If you understand, click the Enter Button\e[4m ${b}▪︎${n}"
+echo -e " ${b}■ \e[4m${c}If you understand, click the enter button\e[4m ${b}▪︎${n}"
 read -p ""
 }
 
-# Function to display messages
 display_messages() {
     clear
-    banned=$(curl -s "$URL/ban" | jq -r --arg user "$username" '.[] | select(.username == $user) | "Are You banned — °|\(.username)|°  \(.bn_mesg)"')
+    banned=$(curl -s "$URL/ban" | jq -r --arg user "$username" '.[] | select(.username == $user) | "Are You banned: °|\(.username)|°  \(.bn_mesg)"')
     if [ -n "$banned" ]; then
      load
 echo -e "     ${c}____    __    ____  _  _     _  _ "
@@ -228,16 +226,13 @@ clear
         echo -e "  $T"
         echo -e "${lm}"
 
-        # Fetch and display messages
         msg=$(curl -s "$URL/messages" | jq -r '.[] | "\(.username): \(.message)"')
         echo -e "${g}$msg"
         
-        # Fetch and display ads
         ads=$(curl -s "$URL/ads" | jq -r '.[]')
         echo -e "${c}$ads${c}\n"
 
-        # Function to send a message
-        read -p "[+]─[Enter Message | $username]──➤ " message
+        read -p "[+] Enter Message as $username: " message
         if [[ "$message" == $'q' ]]; then
         echo
     echo -e "\n ${E} ${r}Exiting..Tool..!\n"
@@ -265,7 +260,7 @@ echo -e "       ${y} )(_) )/(__)\  )   / )  ((___))  ("
 echo -e "      ${y} (____/(__)(__)(_)\_)(_)\_)   (_/\_)\n\n"
     echo -e " ${A} ${c}Enter Your Anonymous ${g}Username${c}"
     echo
-    read -p "[+]──[Enter Your Username]────► " username
+    read -p "[+] Enter Your Username: " username
 
     # Validate username
     if [[ -z "$username" ]]; then
@@ -284,18 +279,16 @@ echo -e "      ${y} (____/(__)(__)(_)\_)(_)\_)   (_/\_)\n\n"
     echo
     echo -e " ${A} ${c}Your account created ${g}Successfully¡${c}"
     
-    # Save the username
     echo "$username" > "$USERNAME_FILE"
     echo
     sleep 1
     echo -e " ${D} ${c}Enjoy Our Chat Tool¡"
     echo
-    read -p "[+]──[Enter to back]────► "
+    read -p "[+] Enter to back:  "
     dx
     display_messages
 }
 
-# Load username if exists
 if [ -f "$USERNAME_FILE" ]; then
     username=$(cat "$USERNAME_FILE")
 else
@@ -303,6 +296,5 @@ else
     username=$(cat "$USERNAME_FILE")
 fi
 
-# Start displaying messages
 inter
 display_messages
