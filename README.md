@@ -21,8 +21,8 @@ apt update && apt upgrade -y
 pkg install git -y
 ```
 ```
-git clone https://github.com/starexxx/Termux-Banner.git
-cd Termux-Banner/
+git clone https://github.com/VadymYem/terminal
+cd terminal
 ```
 ```bash
 chmod +x *
